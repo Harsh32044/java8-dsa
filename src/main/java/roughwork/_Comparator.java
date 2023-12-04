@@ -10,7 +10,7 @@ public class _Comparator {
             int unit1 = nu1 % 10;
             int unit2 = nu2 % 10;
 
-            return Integer.compare(unit1, unit2);
+            return unit1 - unit2;
         };
 
         List<Integer> list = new ArrayList<>();
@@ -27,7 +27,7 @@ public class _Comparator {
 
 //        System.out.println("With our custom comparator");
 
-        list.sort(comp);
+        Collections.sort(list, comp);
 
 //        System.out.println(list);
 
@@ -40,16 +40,14 @@ public class _Comparator {
         strings.add("Hippie");
         strings.add("Dominic");
         strings.add("K");
-        strings.add("Bubu");
-        strings.add("Harshikha Bubu");
 
 //        System.out.println(strings);
 
-        Collections.sort(strings, (s1, s2) -> {
+        strings.sort((s1, s2) -> {
             return Integer.compare(s1.length(), s2.length());
         });
 
-//        System.out.println(strings);
+        System.out.println(strings);
 
         
 
