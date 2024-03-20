@@ -2,7 +2,7 @@ package main.java.multithread;
 
 public class MyThreadThing implements Runnable{
 
-    private int threadNum;
+    private final int threadNum;
 
     public MyThreadThing(int threadNum) {
         this.threadNum = threadNum;

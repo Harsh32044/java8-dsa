@@ -13,20 +13,32 @@ public class Payments {
         UPIPayments upiPayments = (src, des) -> String.valueOf(src.hashCode() + des.hashCode()) + "@NoImpl";
 
         PaytmUPI paytmUPI = new PaytmUPI();
-        System.out.println(paytmUPI.doPayment("SRC", "DSTN") );
+//        System.out.println(paytmUPI.doPayment("SRC", "DSTN") );
 
         int[] arr = {1,2,5,6,2,3,1};
 
         int[] newArr = Arrays.stream(arr)
                 .distinct().sorted().filter(n -> n>4).toArray();
 
-        System.out.println(Arrays.toString(newArr));
+//        System.out.println(Arrays.toString(newArr));
 
         List<Integer> list = Stream.of(1,2,3,4, 5, 6, 7)
                 .toList();
         Payments payments = new Payments();
-        list.stream().filter(i -> i < 4).forEach(payments::log10);
+//        list.stream().filter(i -> i < 4).forEach(payments::log10);
 
+        System.out.println(reverse(122233));
 
+    }
+
+    public static int reverse(int num) {
+        int rem = 0;
+
+        while (num != 0) {
+            rem = (num % 10) + (rem * 10);
+            num /= 10;
+        }
+
+        return  rem;
     }
 }

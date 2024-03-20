@@ -1,5 +1,7 @@
 package main.java.streams;
 
+import main.java.streams.employeedemo.Employee;
+
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;

@@ -10,7 +10,7 @@ public class NthRowPascalTriangle {
     static ArrayList<BigInteger> nthRowOfPascalTriangle(int n) {
         // code here
         ArrayList<BigInteger> prev = new ArrayList<>();
-        prev.add(0,BigInteger.ONE);
+        prev.addFirst(BigInteger.ONE);
         for(int i = 0; i < n; i++) {
             ArrayList<BigInteger> curr = new ArrayList<>();
             for (int j = 0; j <= i; j++) {
