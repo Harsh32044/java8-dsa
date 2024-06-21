@@ -18,5 +18,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="commons-math-4" level="application" />
   </component>
 </module>

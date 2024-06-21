@@ -24,7 +24,7 @@ public class SortListDemo {
 //        list.stream().sorted(comp.reversed()).forEach(System.out::println);
 
         // SOrting using Collectors.sort()
-//        Database.getEmployees().stream().sorted((e1, e2) -> (int) (e1.getSalary() - e2.getSalary())).forEach(System.out::println);
+        Database.getEmployees().stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);
 
         //Sorting using stream, using Comparator.comparing
 

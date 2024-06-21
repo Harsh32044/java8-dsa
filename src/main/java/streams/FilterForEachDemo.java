@@ -31,7 +31,7 @@ public class FilterForEachDemo {
         map.put(3,"c");
         map.put(4,"d");
 
-        map.entrySet().stream().filter(key -> key.getKey() % 2 == 0).forEach(item -> System.out.println(item));
+        map.entrySet().stream().filter(key -> key.getKey() % 2 == 0).forEach(System.out::println);
 
 
 

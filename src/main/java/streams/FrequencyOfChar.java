@@ -8,15 +8,15 @@ public class FrequencyOfChar {
 
     public static void main(String[] args) throws Exception{
 
-        String input = "Mercedes";
+        String input = "unbprosjperousnessk";
 
         // Map of character occurrences
         Map<String, Long> map = Arrays.stream(input.split(""))
                 .collect(Collectors.groupingBy(
-                        Function.identity(), Collectors.counting()
+                        Function.identity(),LinkedHashMap::new, Collectors.counting()
                 ));
         // List of duplicate chars
-        System.out.println(map.entrySet().stream().filter(entry -> entry.getValue() > 1).map(entry -> entry.getKey()).toList());
+        System.out.println(map.entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey).toList());
 //        System.out.println(map);
 
         // First non-repeating char in string
@@ -24,8 +24,8 @@ public class FrequencyOfChar {
                         .collect(Collectors.groupingBy(
                                 Function.identity(), LinkedHashMap::new, Collectors.counting()
                         )).entrySet().stream()
-                        .filter(entry -> entry.getValue() > 1)
-                                .findFirst().orElseThrow(() -> new Exception("Element not found")).getKey();
+                        .filter(entry -> entry.getValue() == 1)
+                                .findFirst().orElse(new AbstractMap.SimpleEntry<>(null, null)).getKey();
         System.out.println(firstNonRepeatChar);
 
 //        System.out.println(countFreq(input));
@@ -35,13 +35,19 @@ public class FrequencyOfChar {
 
         int secondHighest = Arrays.stream(numbers)
                 .boxed()
-                .sorted(Comparator.reverseOrder()).skip(1).findFirst().orElseThrow(() -> new RuntimeException("Not found"));
+                .sorted(Comparator.reverseOrder()).skip(1).findFirst().orElse(1);
 
         System.out.println(secondHighest);
 
         //Longest string in a given array
 
         String[] arr = {"java", "javascript", "postgresql", "docker", "typescript", "microservices"};
+
+        System.out.println(
+                Arrays.stream(arr)
+                        .sorted()
+                        .toList()
+        );
 
         System.out.println(Arrays.stream(arr)
                 .reduce((word1, word2) -> word1.length() > word2.length() ? word1 : word2)

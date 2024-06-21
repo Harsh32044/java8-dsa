@@ -7,7 +7,8 @@ public class SelectionSort {
     public static void main(String[] args) {
 
         int[] arr = {4, 62,6,2,0,55,1, -2, 44,9,12};
-        selectionSort(arr);
+//        selectionSort(arr);
+        selectSort(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -26,6 +27,26 @@ public class SelectionSort {
             arr[minIndex] = arr[i];
             arr[i] = temp;
 
+        }
+    }
+
+    static int select(int[] arr, int i) {
+        int minIndex = i;
+        for(int j = i; j<arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        return minIndex;
+    }
+
+    static void selectSort(int[] arr, int n) {
+
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = select(arr, i);
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
     }
 }
