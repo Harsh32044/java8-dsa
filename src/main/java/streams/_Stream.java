@@ -25,9 +25,15 @@ public class _Stream {
             }
         };
 
+        Comparator<String> comparator2 = (str1, str2) -> str1.length() - str2.length();
+
         System.out.println(Arrays.toString(
                 list1.stream()
                         .map(e -> e * 10)
                         .toArray()));
+        // To count the occurrence of each character in a string
+        String str = "Harsh";
+        Map<String, Long> map = Arrays.stream(str.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }

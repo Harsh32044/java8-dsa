@@ -1,6 +1,8 @@
-package main.java.streams;
+package main.java.streams.employeedemo;
 
-public class Employee {
+import org.jetbrains.annotations.NotNull;
+
+public class Employee implements Comparable<Employee>{
     private int id;
     private String name;
     private String dept;
@@ -54,5 +56,10 @@ public class Employee {
                 ", dept='" + dept + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull Employee o) {
+        return (int) (this.getSalary() - o.getSalary());
     }
 }
